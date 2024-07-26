@@ -1,4 +1,4 @@
-package com.gautham.rest.webservices.restfulwebservices;
+package dev.gautham.rest.webservices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

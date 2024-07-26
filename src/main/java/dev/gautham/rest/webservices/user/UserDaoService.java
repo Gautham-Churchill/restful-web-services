@@ -1,4 +1,4 @@
-package com.gautham.rest.webservices.restfulwebservices.user;
+package dev.gautham.rest.webservices.user;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,11 +23,16 @@ public class UserDaoService {
     }
 
     public User findUserById(Integer id) {
-        return users.stream().filter(user -> user.getId().equals(id)).findFirst().get();
+        return users.stream().filter(user -> user.getId().equals(id)).findFirst().orElse(null);
     }
 
-    public void save(User user) {
+    public User save(User user) {
         user.setId(++userCount);
         users.add(user);
+        return findUserById(userCount);
+    }
+
+    public void deleteById(Integer id) {
+        users.removeIf(user -> user.getId().equals(id));
     }
 }
