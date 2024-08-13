@@ -1,8 +1,9 @@
-package dev.gautham.rest.webservices.user;
+package dev.gautham.rest.restfulwebservices.user;
 
 import java.net.URI;
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.hateoas.EntityModel;
@@ -17,6 +18,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RestController
 @RequestMapping("/users")
 @Log4j2
+@Tag(name = "UserController")
 public class UserController {
     
     private final UserDaoService userDaoService;

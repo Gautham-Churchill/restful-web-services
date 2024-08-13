@@ -1,4 +1,4 @@
-package dev.gautham.rest.webservices.exception;
+package dev.gautham.rest.restfulwebservices.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

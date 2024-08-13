@@ -1,4 +1,4 @@
-package dev.gautham.rest.webservices.helloworld;
+package dev.gautham.rest.restfulwebservices.helloworld;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

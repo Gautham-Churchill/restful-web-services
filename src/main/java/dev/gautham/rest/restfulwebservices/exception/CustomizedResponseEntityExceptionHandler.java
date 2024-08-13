@@ -1,7 +1,8 @@
-package dev.gautham.rest.webservices.exception;
+package dev.gautham.rest.restfulwebservices.exception;
 
 import java.time.LocalDateTime;
 
+import jakarta.validation.constraints.NotNull;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import dev.gautham.rest.webservices.user.UserNotFoundException;
+import dev.gautham.rest.restfulwebservices.user.UserNotFoundException;
 
 
 @ControllerAdvice
@@ -35,8 +36,8 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     }
 
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(
-            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+                                        HttpHeaders headers, HttpStatusCode status, WebRequest request) {
 
         ErrorDetails er = new ErrorDetails(LocalDateTime.now(), ex.getFieldError().getDefaultMessage()
                 , request.getDescription(false));

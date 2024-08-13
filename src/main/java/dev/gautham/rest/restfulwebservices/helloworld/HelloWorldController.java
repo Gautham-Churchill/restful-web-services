@@ -1,5 +1,6 @@
-package dev.gautham.rest.webservices.helloworld;
+package dev.gautham.rest.restfulwebservices.helloworld;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/hello")
+@Tag(name = "HelloWorldController")
 public class HelloWorldController {
 
     @GetMapping

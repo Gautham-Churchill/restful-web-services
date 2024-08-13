@@ -1,4 +1,4 @@
-package dev.gautham.rest.webservices.user;
+package dev.gautham.rest.restfulwebservices.user;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;

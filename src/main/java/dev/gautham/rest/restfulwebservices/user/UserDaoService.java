@@ -1,4 +1,4 @@
-package dev.gautham.rest.webservices.user;
+package dev.gautham.rest.restfulwebservices.user;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

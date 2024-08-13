@@ -1,4 +1,4 @@
-package dev.gautham.rest.webservices;
+package dev.gautham.rest.restfulwebservices;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
