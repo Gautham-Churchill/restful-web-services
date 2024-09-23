@@ -1,18 +1,19 @@
 package dev.gautham.rest.restfulwebservices.coach;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/coach")
+@Tag(name = "CoachController")
 public class CoachController {
 
     private final Coach coach;
 
-    @Autowired
-    public CoachController(Coach coach) {
+    public CoachController(@Qualifier("trackCoach") Coach coach) {
         this.coach = coach;
     }
 
@@ -20,4 +21,5 @@ public class CoachController {
     public String getDailyWorkout() {
         return coach.getDailyWorkOut();
     }
+
 }
