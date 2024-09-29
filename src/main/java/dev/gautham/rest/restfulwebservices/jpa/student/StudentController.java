@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/student")
 @RequiredArgsConstructor
-@Tag(name = "StudentController")
+@Tag(name = "Student APIs")
 @Slf4j
 public class StudentController {
 
@@ -46,15 +46,15 @@ public class StudentController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveStudent(@RequestBody StudentEntity studentEntity) {
+    public StudentEntity saveStudent(@RequestBody StudentEntity studentEntity) {
         log.info("Saving Student");
-        studentService.saveStudent(studentEntity);
+        return studentService.saveStudent(studentEntity);
     }
 
     @PutMapping
-    public void updateStudent(@RequestBody StudentEntity studentEntity) {
+    public StudentEntity updateStudent(@RequestBody StudentEntity studentEntity) {
         log.info("Updating Student");
-        studentService.updateStudent(studentEntity);
+        return studentService.updateStudent(studentEntity);
     }
 
     @DeleteMapping("/{id}")

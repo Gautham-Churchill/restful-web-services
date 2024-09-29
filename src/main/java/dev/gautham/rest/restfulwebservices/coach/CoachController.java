@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/coach")
-@Tag(name = "CoachController")
+@Tag(name = "Coach APIs")
 public class CoachController {
 
     private final Coach coach;

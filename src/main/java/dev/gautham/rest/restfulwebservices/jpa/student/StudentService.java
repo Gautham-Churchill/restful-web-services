@@ -10,9 +10,9 @@ public interface StudentService {
 
     List<StudentEntity> findStudentsByLastName(String lastName);
 
-    void saveStudent(StudentEntity student);
+    StudentEntity saveStudent(StudentEntity student);
 
-    void updateStudent(StudentEntity studentEntity);
+    StudentEntity updateStudent(StudentEntity studentEntity);
 
     void deleteStudentById(Integer id);
 

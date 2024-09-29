@@ -1,5 +1,6 @@
 package dev.gautham.rest.restfulwebservices.exception;
 
+import dev.gautham.rest.restfulwebservices.jpa.employee.EmployeeNotFoundException;
 import dev.gautham.rest.restfulwebservices.jpa.student.StudentNotFoundException;
 import dev.gautham.rest.restfulwebservices.user.UserNotFoundException;
 import org.springframework.http.HttpHeaders;
@@ -26,7 +27,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler({UserNotFoundException.class, StudentNotFoundException.class})
+    @ExceptionHandler({UserNotFoundException.class, StudentNotFoundException.class, EmployeeNotFoundException.class})
     public final ResponseEntity<ErrorDetails> handleUserNotFoundException(Exception ex, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(),
                 ex.getMessage(), request.getDescription(false));
@@ -37,7 +38,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                         HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-        String errorMessage = ex.getFieldError() !=null? ex.getFieldError().getDefaultMessage() : "";
+        String errorMessage = ex.getFieldError() != null? ex.getFieldError().getDefaultMessage() : "";
         ErrorDetails er = new ErrorDetails(LocalDateTime.now(), errorMessage, request.getDescription(false));
 
         return new ResponseEntity<>(er, HttpStatus.BAD_REQUEST);

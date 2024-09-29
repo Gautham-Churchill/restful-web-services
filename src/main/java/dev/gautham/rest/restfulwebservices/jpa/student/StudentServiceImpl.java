@@ -3,6 +3,7 @@ package dev.gautham.rest.restfulwebservices.jpa.student;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -32,17 +33,20 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void saveStudent(StudentEntity student) {
-        studentDao.save(student);
-        log.info("Saved Student");
+    @Transactional
+    public StudentEntity saveStudent(StudentEntity student) {
+        return studentDao.save(student);
+
     }
 
     @Override
-    public void updateStudent(StudentEntity studentEntity) {
-        studentDao.update(studentEntity);
+    @Transactional
+    public StudentEntity updateStudent(StudentEntity studentEntity) {
+        return studentDao.update(studentEntity);
     }
 
     @Override
+    @Transactional
     public void deleteStudentById(Integer id) {
         log.debug("Deleting student with id: {}", id);
         if(studentDao.deleteById(id)){
@@ -53,6 +57,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @Transactional
     public int deleteAllStudents() {
         return studentDao.deleteAll();
     }

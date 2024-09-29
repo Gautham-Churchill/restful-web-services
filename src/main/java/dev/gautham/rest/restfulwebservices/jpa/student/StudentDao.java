@@ -11,9 +11,9 @@ public interface StudentDao {
 
     List<StudentEntity> findByLastName(String theLastName);
 
-    void save(StudentEntity student);
+    StudentEntity save(StudentEntity student);
 
-    void update(StudentEntity studentEntity);
+    StudentEntity update(StudentEntity studentEntity);
 
     boolean deleteById(Integer id);
 

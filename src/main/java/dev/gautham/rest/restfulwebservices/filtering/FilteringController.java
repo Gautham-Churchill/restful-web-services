@@ -14,23 +14,28 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/filtering")
-@Tag(name = "FilteringController")
+@Tag(name = "Filtering API")
 public class FilteringController {
+
+    private static final String GAUTHAM = "gautham";
+    private static final String SUVETHA = "suvetha";
+    private static final String MAY_16 = "16-05";
+    private static final String MAY_18 = "18-05";
 
     @GetMapping("/static")
     public UserStaticFilterBean staticFiltering() {
-        return new UserStaticFilterBean("gautham", "gautham", "16-05");
+        return new UserStaticFilterBean(GAUTHAM, GAUTHAM, MAY_16);
     }
 
     @GetMapping("/static-list")
     public List<UserStaticFilterBean> getStaticFilteringList() {
-        return Arrays.asList(new UserStaticFilterBean("gautham", "gautham", "16-05"),
-                new UserStaticFilterBean("suvetha", "suvetha", "18-05"));
+        return Arrays.asList(new UserStaticFilterBean(GAUTHAM, GAUTHAM, MAY_16),
+                new UserStaticFilterBean(SUVETHA, SUVETHA, MAY_18));
     }
 
     @GetMapping("/dynamic")
     public MappingJacksonValue dynamicFilterBean() {
-        UserDynamicFilterBean userBean = new UserDynamicFilterBean("gautham", "gautham", "16-05");
+        UserDynamicFilterBean userBean = new UserDynamicFilterBean(GAUTHAM, GAUTHAM, MAY_16);
         MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(userBean);
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("userName","birthDate");
         FilterProvider provider = new SimpleFilterProvider().addFilter("userBeanFilter", filter);
@@ -40,8 +45,8 @@ public class FilteringController {
 
     @GetMapping("/dynamic-list")
     public MappingJacksonValue getDynamicFilteringList(){
-        UserDynamicFilterBean userBean1 = new UserDynamicFilterBean("gautham", "gautham", "16-05");
-        UserDynamicFilterBean userBean2 = new UserDynamicFilterBean("suvetha", "suvetha", "18-05");
+        UserDynamicFilterBean userBean1 = new UserDynamicFilterBean(GAUTHAM, GAUTHAM, MAY_16);
+        UserDynamicFilterBean userBean2 = new UserDynamicFilterBean(SUVETHA, SUVETHA, MAY_18);
         List<UserDynamicFilterBean> list = Arrays.asList(userBean1, userBean2);
         MappingJacksonValue jacksonValue = new MappingJacksonValue(list);
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("userName","birthDate");

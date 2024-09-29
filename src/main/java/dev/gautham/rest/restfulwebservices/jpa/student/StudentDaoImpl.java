@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,25 +32,21 @@ public class StudentDaoImpl implements StudentDao {
         return query.getResultList();
     }
 
-
     @Override
-    @Transactional
-    public void save(StudentEntity student) {
-        en.persist(student);
+    public StudentEntity save(StudentEntity student) {
+        return en.merge(student);
     }
 
     @Override
-    @Transactional
-    public void update(StudentEntity studentEntity) {
+    public StudentEntity update(StudentEntity studentEntity) {
         StudentEntity student = findById(studentEntity.getId()).orElseThrow(() -> new StudentNotFoundException("Student with id " + studentEntity.getId() + " is not found"));
         student.setFirstName(studentEntity.getFirstName());
         student.setLastName(studentEntity.getLastName());
         student.setEmail(studentEntity.getEmail());
-        en.merge(student);
+        return en.merge(student);
     }
 
     @Override
-    @Transactional
     public boolean deleteById(Integer id) {
         Optional<StudentEntity> student = findById(id);
         student.ifPresent(en::remove);
@@ -59,7 +54,6 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    @Transactional
     public int deleteAll() {
         return en.createQuery("DELETE FROM StudentEntity").executeUpdate();
     }
