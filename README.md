@@ -27,6 +27,8 @@
 * **update** - update the schema if needed
 </p>
 
+> **_Note:_** Write native or JPQL queries if the number of db queries via JPA is too many!
+
 ## Todo list
 - Create CRUD for user details (with hashed pwd)
 - Create users in custom user table using JPA (as shown in 159 lesson the udemy course)

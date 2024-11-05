@@ -10,7 +10,9 @@ public class ApplicationConstants {
     public static final String MANAGER = "MANAGER";
     public static final String ADMIN = "ADMIN";
 
-
     public static final String EMPLOYEES_API = "/employees";
-    public static final String EMPLOYEES_NEXT_API = "/employees";
+    public static final String EMPLOYEES_NEXT_API = "/employees/**";
+
+    public static final String INSTRUCTOR_API = "/instructors";
+    public static final String INSTRUCTOR_NEXT_API = "/instructors/**";
 }

@@ -6,19 +6,19 @@ insert into "employee" values
 	(nextval('employee_seq'),'Juan','Vega','juan@email.com');
 
 insert into "members" values
-    ('John', '{bcrypt}$2a$12$.SpUTCd.KgN4DM2Xg5mlbel0f7hYLVbElxsBkD5h7g.S3TawsFgQ.', 1),
-    ('Mary', '{bcrypt}$2a$12$.SpUTCd.KgN4DM2Xg5mlbel0f7hYLVbElxsBkD5h7g.S3TawsFgQ.', 1),
-    ('Susan', '{bcrypt}$2a$12$.SpUTCd.KgN4DM2Xg5mlbel0f7hYLVbElxsBkD5h7g.S3TawsFgQ.', 1);
+    ('john', '{bcrypt}$2a$12$IW.TGTbzch4z7mVv3wZVTOlcjABrfD/Hx/3jGlFMLndIRE.pnwkyG', 1),
+    ('mary', '{bcrypt}$2a$12$IW.TGTbzch4z7mVv3wZVTOlcjABrfD/Hx/3jGlFMLndIRE.pnwkyG', 1),
+    ('susan', '{bcrypt}$2a$12$IW.TGTbzch4z7mVv3wZVTOlcjABrfD/Hx/3jGlFMLndIRE.pnwkyG', 1);
 
 update users set password = '{bcrypt}$2a$12$.SpUTCd.KgN4DM2Xg5mlbel0f7hYLVbElxsBkD5h7g.S3TawsFgQ.';
 
 insert into "roles" values
-    ('John', 'ROLE_EMPLOYEE'),
-    ('Mary', 'ROLE_EMPLOYEE'),
-    ('Mary', 'ROLE_MANAGER'),
-    ('Susan', 'ROLE_EMPLOYEE'),
-    ('Susan', 'ROLE_MANAGER'),
-    ('Susan', 'ROLE_ADMIN');
+    ('john', 'ROLE_EMPLOYEE'),
+    ('mary', 'ROLE_EMPLOYEE'),
+    ('mary', 'ROLE_MANAGER'),
+    ('susan', 'ROLE_EMPLOYEE'),
+    ('susan', 'ROLE_MANAGER'),
+    ('susan', 'ROLE_ADMIN');
 
 select * from members;
 select * from roles;
